@@ -1,0 +1,10 @@
+cd /data/d00662834/code
+export KUBECONFIG=/data/.cache/kb.yaml
+cat env.sh
+cat gen_yaml.sh
+bash gen_yaml.sh
+python3 run_ascend_ci.py
+kubectl get pods -A -o wide | grep sglang
+kubectl logs -f -n [pod name]
+kubectl delete -f deepep.yaml
+kubectl exec -it -n kube-system             mindx-dls-test-sglang-decode-0 -- /bin/bash

@@ -1,0 +1,289 @@
+{
+ "binFileName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161",
+ "binFileSuffix": ".o",
+ "blockDim": -1,
+ "coreType": "MIX",
+ "intercoreSync": 1,
+ "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161",
+ "magic": "RT_DEV_BINARY_MAGIC_ELF",
+ "memoryStamping": [],
+ "opParaSize": 728,
+ "parameters": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "sha256": "4c67035462ea52a0a3ca7f1db689ac2d1ea24f047a0c575ada3e11c715751975",
+ "workspace": {
+  "num": 1,
+  "size": [
+   -1
+  ],
+  "type": [
+   0
+  ]
+ },
+ "taskRation": "0:1",
+ "kernelList": [
+  {
+   "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161_10011"
+  },
+  {
+   "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161_10002"
+  },
+  {
+   "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161_10012"
+  },
+  {
+   "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161_10111"
+  },
+  {
+   "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161_10102"
+  },
+  {
+   "kernelName": "MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161_10112"
+  }
+ ],
+ "optionalInputMode": "gen_placeholder",
+ "optionalOutputMode": "gen_placeholder",
+ "supportSuperKernel": 1,
+ "compileInfo": {},
+ "supportInfo": {
+  "implMode": "high_performance",
+  "int64Mode": false,
+  "simplifiedKeyMode": 0,
+  "simplifiedKey": [
+   "MoeDistributeDispatchV2/d=0,p=1/27,2/3,2/2,2/0,2/3,2/9,2/3,2/3,2",
+   "MoeDistributeDispatchV2/d=0,p=0/27,2/3,2/2,2/0,2/3,2/9,2/3,2/3,2",
+   "MoeDistributeDispatchV2/d=1,p=1/27,2/3,2/2,2/0,2/3,2/9,2/3,2/3,2",
+   "MoeDistributeDispatchV2/d=1,p=0/27,2/3,2/2,2/0,2/3,2/9,2/3,2/3,2"
+  ],
+  "optionalInputMode": "gen_placeholder",
+  "optionalOutputMode": "gen_placeholder",
+  "staticKey": "53a20a9b8710c80460d7e80ff584ed622dc66a239b1a6034c32530647dfc9d76,1d02b8b9e196a784ce59eb32e78b027f851811fec66e33404be37d3546721455",
+  "inputs": [
+   {
+    "name": "x",
+    "index": 0,
+    "dtype": "bfloat16",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "expert_ids",
+    "index": 1,
+    "dtype": "int32",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "scales",
+    "index": 2,
+    "dtype": "float32",
+    "format": "ND",
+    "paramType": "optional",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "x_active_mask",
+    "index": 3,
+    "dtype": "bool",
+    "format": "ND",
+    "paramType": "optional",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "elastic_info",
+    "index": 4,
+    "dtype": "int32",
+    "format": "ND",
+    "paramType": "optional",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   }
+  ],
+  "outputs": [
+   {
+    "name": "expand_x",
+    "index": 0,
+    "dtype": "int8",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "dynamic_scales",
+    "index": 1,
+    "dtype": "float32",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "assist_info_for_combine",
+    "index": 2,
+    "dtype": "int32",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "expert_token_nums",
+    "index": 3,
+    "dtype": "int64",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "ep_recv_count",
+    "index": 4,
+    "dtype": "int32",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "tp_recv_count",
+    "index": 5,
+    "dtype": "int32",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   }
+  ],
+  "attrs": [
+   {
+    "name": "group_ep",
+    "dtype": "str",
+    "value": ""
+   },
+   {
+    "name": "ep_world_size",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "ep_rank_id",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "moe_expert_num",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "group_tp",
+    "dtype": "str",
+    "value": ""
+   },
+   {
+    "name": "tp_world_size",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "tp_rank_id",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "expert_shard_type",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "shared_expert_num",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "shared_expert_rank_num",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "quant_mode",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "global_bs",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "expert_token_nums_type",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "comm_alg",
+    "dtype": "str",
+    "value": ""
+   },
+   {
+    "name": "zero_expert_num",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "copy_expert_num",
+    "dtype": "int",
+    "value": 0
+   },
+   {
+    "name": "const_expert_num",
+    "dtype": "int",
+    "value": 0
+   }
+  ],
+  "opMode": "dynamic",
+  "deterministic": "ignore"
+ },
+ "filePath": "ascend910_93/moe_distribute_dispatch_v2/MoeDistributeDispatchV2_ba45fbab40242269e8d51354bcf25161.json"
+}

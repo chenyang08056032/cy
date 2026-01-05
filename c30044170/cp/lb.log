@@ -1,0 +1,7 @@
+[33mMiniLB is only for debugging purposes, it only supports random policy![0m
+[MiniLB] Overriding policy to random
+INFO:     Started server process [88131]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://192.168.0.77:6699 (Press CTRL+C to quit)
+INFO:     192.168.0.77:33270 - "POST /generate HTTP/1.1" 200 OK

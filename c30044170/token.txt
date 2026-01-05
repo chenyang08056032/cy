@@ -1,0 +1,16 @@
+chenyang08056032
+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
+git clone https://gh-proxy.com/https://github.com/chenyang08056032/sglang.git
+git clone https://gh-proxy.com/https://github.com/chenyang08056032/sglang-project.git
+git clone https://gh-proxy.com/https://github.com/KnightLTC/sglang-project.git
+git clone https://gh-proxy.com/https://github.com/sglang-project/sglang.git
+git clone https://gh-proxy.com/https://github.com/shun8686/sglang.git
+export PYTHONPATH=/home/cy/code/sglang-project/python:$PYTHONPATH
+export PYTHONPATH=/data/c30044170/code/model/sglang-project/python:$PYTHONPATH
+export PYTHONPATH=/data/d00662834/1211_cx/sglang/python:$PYTHONPATH
+
+export PYTHONPATH=/data/c30044170/code/xingneng/sglang-project/python:$PYTHONPATH
+source /usr/local/Ascend/8.5.0/bisheng_toolkit/set_env.sh 
+
+docker pull swr.cn-southwest-2.myhuaweicloud.com/base_image/dockerhub/lmsysorg/sglang:main-cann8.3.rc1-a3
+export HF_ENDPOINT=https://hf-mirror.com
