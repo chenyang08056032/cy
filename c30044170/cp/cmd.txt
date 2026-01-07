@@ -1,3 +1,0 @@
-export PYTHONPATH=/data/dzc/b022/scp/sglang-npu-nn-B022/python:$PYTHONPATH
-
-python3 /data/dzc/b020/sglang-project/test/srt/ascend/test_ascend_scp.py
