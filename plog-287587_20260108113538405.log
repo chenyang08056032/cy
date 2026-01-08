@@ -1,0 +1,99 @@
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:38.330.267 [stars_engine.cc:1502]287587 ProcLogicCqReport:Task run failed, device_id=0, stream_id=6, task_id=54767, sqe_type=0(ffts), errType=0x1(task exception), sqSwStatus=0
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:39.025.376 [device_error_core_proc.cc:333]287587 ProcessStarsCoreErrorInfo:report error module_type=5, module_name=EZ9999
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:39.025.387 [device_error_core_proc.cc:333]287587 ProcessStarsCoreErrorInfo:The error from device(chipId:0, dieId:0), serial number is 8, there is an exception of fftsplus aivector error, core id is 19, error code = 0x800000, dump info: pc start: 0x12c0c13d3e20, current: 0x12c0c13d5aec, vec error info: 0x5f1210beb8, mte error info: 0x5b06000034, ifu error info: 0x9ed1663b0840, ccu error info: 0x88e19a0f559b0cc5, cube error info: 0, biu error info: 0, aic error mask: 0x6500020bd00028c, para base: 0x12c1401e9080.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:39.025.421 [device_error_core_proc.cc:353]287587 ProcessStarsCoreErrorInfo:report error module_type=5, module_name=EZ9999
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:39.025.424 [device_error_core_proc.cc:353]287587 ProcessStarsCoreErrorInfo:The extend info: errcode:(0x800000, 0, 0) errorStr: The DDR address of the MTE instruction is out of range. fixp_error0 info: 0x6000034, fixp_error1 info: 0x5b, fsmId:0, tslot:5, thread:0, ctxid:0, blk:22, sublk:0, subErrType:4.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.232.022 [device_error_core_proc.cc:246]287587 HasMemUceErr:Get isSmmuFault is 1.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.232.028 [device_error_core_proc.cc:369]287587 ProcessStarsCoreErrorInfo:mte error, devId=0, streamId=6, taskId=54767, errorCode=0.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.232.045 [stream.cc:3285]287587 EnterFailureAbort:stream_id=6 enter failure abort.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.232.051 [davinci_kernel_task.cc:1642]287587 SetStarsResultForDavinciTask:AICORE Kernel task happen error, retCode=0x26.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.245.988 [davinci_kernel_task.cc:1555]287587 PreCheckTaskErr:report error module_type=5, module_name=EZ9999
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.245.995 [davinci_kernel_task.cc:1555]287587 PreCheckTaskErr:Kernel task happen error, retCode=0x26, [aicore exception].
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.024 [stream.cc:1188]287587 GetError:Stream Synchronize failed, stream_id=6, retCode=0x26, [aicore exception].
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.027 [stream.cc:1191]287587 GetError:report error module_type=5, module_name=EZ9999
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.030 [stream.cc:1191]287587 GetError:AICORE Kernel task happen error, retCode=0x26.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.096 [davinci_kernel_task.cc:1397]287587 GetArgsInfo:[AIC_INFO] args(0 to 19) after execute:0xdfffce368000, 0x12f900553800, 0x12e39550c000, 0x130a40006000, 0x12e440002c00, 0x12e44001d400, 0x12e440001a00, 0x12e44031b600, 0x12f9006cc000, 0x12c1401e90d8, 0x12c100011000, 0x1, 0x40, 0x80000000300, 0x8000000018, 0x300000006, 0xa5a5a5a50e04c395, 0, 0, 0,  
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.100 [davinci_kernel_task.cc:1400]287587 GetArgsInfo:tilingKey = 50535195, print 1 Times totalLen=(20*8), argsSize=160, blockDim=24
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.107 [davinci_kernel_task.cc:1441]287587 PrintErrorInfoForDavinciTask:[AIC_INFO] after execute:args print end
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.126 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[0]=0x00000006.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.129 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[1]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.131 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[2]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.133 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[3]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.135 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[4]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.137 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[5]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.139 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[6]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.141 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[7]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.143 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[8]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.145 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[9]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.147 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[10]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.149 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[11]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.151 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[12]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.153 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[13]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.154 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[14]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.156 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[15]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.158 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[16]=0x00000858.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.160 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[17]=0x02020004.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.162 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[18]=0x00010000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.164 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[19]=0x00180018.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.166 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[20]=0x401e9080.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.168 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[21]=0x00a012c1.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.170 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[22]=0x401e9080.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.172 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[23]=0x00a012c1.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.174 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[24]=0xc13d24c0.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.175 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[25]=0x12c012c0.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.177 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[26]=0xc13d24c0.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.179 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[27]=0xc13d3e20.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.181 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[28]=0x12c012c0.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.183 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[29]=0xc13d3e20.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.185 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[30]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.186 [davinci_kernel_task.cc:1362]287587 GetMixCtxInfo:The DavinciTask Mix context-buf[31]=0000000000.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.189 [davinci_kernel_task.cc:1446]287587 PrintErrorInfoForDavinciTask:[AIC_INFO] after execute:mixCtx print end
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:40.246.248 [davinci_kernel_task.cc:1471]287587 PrintErrorInfoForDavinciTask:Aicore kernel execute failed, device_id=0, stream_id=6, report_stream_id=6, task_id=54767, flip_num=0, fault kernel_name=LightningIndexer_cd3769f98c6c8ab8a03ffb8fb9732823_50535195, fault kernel info ext=none, program id=75, hash=13976054385932901321.
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.246.804 [dump_args.cpp:1048][tid:287587] [AIC_INFO] args(0 to 20) after execute:0xdfffce368000, 0x12f900553800, 0x12e39550c000, 0x130a40006000, 0x12e440002c00, 0x12e44001d400, 0x12e440001a00, 0x12e44031b600, 0x12f9006cc000, 0x12c1401e90d8, 0x12c100011000, 0x1, 0x40, 0x80000000300, 0x8000000018, 0x300000006, 0xa5a5a5a50e04c395, 0, 0, 0, 
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.117 [dump_args.cpp:897][tid:287587] [AIC_INFO] after execute:args print end
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.324 [dump_args.cpp:640][tid:287587] [Dump][Exception] args dump dfx info, addr:0xdfffce368000, tensor type:11, pointer type:1, index: 0
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.431 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.523 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:2, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.604 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12f900553800; size:1540096 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.704 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.810 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:2
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.898 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:2, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.247.990 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12e39550c000; size:36896768 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.081 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:2
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.208 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:3
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.320 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:2, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.429 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x130a40006000; size:12032 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.526 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:3
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.636 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:4
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.736 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:2, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.835 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12e440002c00; size:32 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.248.931 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:4
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.042 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:5
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.149 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:2, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.264 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12e44001d400; size:32 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.372 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:5
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.455 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:6
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.527 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:2, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.595 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12e440001a00; size:32 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.667 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:6
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.739 [dump_args.cpp:1048][tid:287587] [Dump][Exception] begin to load normal tensor, index:7
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.809 [dump_args.cpp:415][tid:287587] [Dump][Exception] tensor type:3, pointer type:1
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.249.907 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12e44031b600; size:770048 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.014 [dump_args.cpp:1048][tid:287587] [Dump][Exception] end to load normal tensor, index:7
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.123 [dump_args.cpp:509][tid:287587] [Dump][Exception] begin to load workspace, index:8
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.234 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12f9006cc000; size:73449472 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.308 [dump_args.cpp:529][tid:287587] [Dump][Exception] end to load workspace, index:8
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.394 [dump_args.cpp:581][tid:287587] [Dump][Exception] begin to load tiling data, index:9
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.479 [dump_args.cpp:1048][tid:287587] [Dump][Exception] exception info dump args data, addr:0x12c1401e90d8; size:48 bytes
+[ERROR] IDEDD(287587,):2026-01-08-11:35:40.250.561 [dump_args.cpp:595][tid:287587] [Dump][Exception] end to load tiling data, index:9
+[ERROR] IDEDD(287587,):2026-01-08-11:35:41.103.159 [dump_args.cpp:1017][tid:287587] [Dump][Exception] dump exception to file, file: /data/c30044170/code/sit_zidonghua/sglang/testcase/model/ascend/llm_models/extra-info/data-dump/0/exception_info.6.54767.20260108113540250
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:41.104.783 [stars_engine.cc:1372]287587 StarsResumeRtsq:stop scheduling in abort failure mode: stream_id=6, sq_id=6, sq_head=1519, task_id=54767, taskType=0.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:41.104.855 [stream.cc:3042]287587 StarsWaitForTask:context is abort, status=0x7150026.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:41.104.862 [api_error.cc:975]287587 StreamSynchronize:Stream synchronize failed, stream_id=6, timeout=-1ms.
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:41.104.878 [api_c_stream.cc:151]287587 rtStreamSynchronize:ErrCode=507015, desc=[aicore exception], InnerCode=0x7150026
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:41.104.881 [error_message_manage.cc:53]287587 FuncErrorReason:report error module_type=3, module_name=EE8888
+[ERROR] RUNTIME(287587,):2026-01-08-11:35:41.104.884 [error_message_manage.cc:53]287587 FuncErrorReason:rtStreamSynchronize execute failed, reason=[aicore exception]
+[ERROR] ASCENDCL(287587,):2026-01-08-11:35:41.105.214 [stream.cpp:131]287587 aclrtSynchronizeStreamImpl: synchronize stream failed, runtime result = 507015
+[ERROR] IDEDD(287587,):2026-01-08-11:35:41.106.086 [kernel_info_collector.cpp:245][tid:310758] [Dump][Exception] dump host kernel to file, file: /data/c30044170/code/sit_zidonghua/sglang/testcase/model/ascend/llm_models/extra-info/data-dump/0/LightningIndexer_cd3769f98c6c8ab8a03ffb8fb9732823_50535195_host.o
+[ERROR] IDEDD(287587,):2026-01-08-11:35:41.142.969 [kernel_info_collector.cpp:340][tid:310758] [Dump][Exception] dump kernel json to file, file: /data/c30044170/code/sit_zidonghua/sglang/testcase/model/ascend/llm_models/extra-info/data-dump/0/LightningIndexer_cd3769f98c6c8ab8a03ffb8fb9732823.json
+[ERROR] IDEDD(287587,):2026-01-08-11:35:41.157.818 [kernel_info_collector.cpp:353][tid:310758] [Dump][Exception] dump kernel to file, file: /data/c30044170/code/sit_zidonghua/sglang/testcase/model/ascend/llm_models/extra-info/data-dump/0/LightningIndexer_cd3769f98c6c8ab8a03ffb8fb9732823.o
