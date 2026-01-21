@@ -5,6 +5,6 @@ nohup python run_suite.py \
   --suite per-commit-1-npu-a3 \
   --continue-on-error \
   --enable-retry \
-  --timeout-pre-file 3600 \
+  --timeout-per-file 3600 \
   --log-dir /data/c30044170/log \
  | split -b 10M -d -a 3 - /data/c30044170/log/console_${TIME}_part_2>&1 &
