@@ -12,7 +12,7 @@ fi
 # 检查log目录是否存在，不存在则创建
 mkdir -p ./log
 
-# 创建总日志文件记录执行过程
+# 创建总日志文件记录执行过程（覆盖写入）
 MASTER_LOG="./log/execution_summary.log"
 echo "==========================================" > "$MASTER_LOG"
 echo "开始执行时间: $(date)" >> "$MASTER_LOG"
@@ -21,15 +21,15 @@ echo "==========================================" >> "$MASTER_LOG"
 
 # 获取所有Python文件并显示
 PYTHON_FILES=$(find "$DIRECTORY" -name "*.py" | sort)
-echo "找到以下Python文件：" | tee -a "$MASTER_LOG"
+echo "找到以下Python文件：" > "$MASTER_LOG"
 echo "==========================================" >> "$MASTER_LOG"
 counter=1
 for file in $PYTHON_FILES; do
-    echo "$counter. $file" | tee -a "$MASTER_LOG"
+    echo "$counter. $file" >> "$MASTER_LOG"
     ((counter++))
 done
 echo "==========================================" >> "$MASTER_LOG"
-echo "总共找到 $(echo "$PYTHON_FILES" | wc -l) 个Python文件" | tee -a "$MASTER_LOG"
+echo "总共找到 $(echo "$PYTHON_FILES" | wc -l) 个Python文件" >> "$MASTER_LOG"
 echo "" >> "$MASTER_LOG"
 
 # 初始化统计变量和文件列表
@@ -46,18 +46,18 @@ for file in $PYTHON_FILES; do
     # 生成对应的日志文件名
     log_file="./log/${filename}.log"
 
-    echo "正在执行: $file" | tee -a "$MASTER_LOG"
+    echo "正在执行: $file" >> "$MASTER_LOG"
     echo "日志文件: $log_file" >> "$MASTER_LOG"
     echo "开始时间: $(date)" >> "$MASTER_LOG"
 
-    # 创建单独的日志文件并执行Python文件
+    # 创建单独的日志文件并执行Python文件（覆盖写入）
     echo "==========================================" > "$log_file"
     echo "执行文件: $file" >> "$log_file"
     echo "开始时间: $(date)" >> "$log_file"
     echo "==========================================" >> "$log_file"
 
-    # 执行Python文件，输出到对应的日志文件
-    python3 "$file" >> "$log_file" 2>&1
+    # 执行Python文件，输出到对应的日志文件（覆盖写入）
+    python3 "$file" > "$log_file" 2>&1
 
     # 获取执行状态
     EXIT_STATUS=$?
@@ -75,12 +75,12 @@ for file in $PYTHON_FILES; do
     ((total_files++))
 
     if [ $EXIT_STATUS -ne 0 ]; then
-        echo "警告：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" | tee -a "$MASTER_LOG"
-        echo "继续执行下一个文件..." | tee -a "$MASTER_LOG"
+        echo "警告：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" >> "$MASTER_LOG"
+        echo "继续执行下一个文件..." >> "$MASTER_LOG"
         ((failed_files++))
         failed_list+=("$file")
     else
-        echo "完成: $file (状态: 成功)" | tee -a "$MASTER_LOG"
+        echo "完成: $file (状态: 成功)" >> "$MASTER_LOG"
         echo "日志文件: $log_file" >> "$MASTER_LOG"
         ((success_files++))
         success_list+=("$file")
