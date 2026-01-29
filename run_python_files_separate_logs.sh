@@ -32,10 +32,12 @@ echo "==========================================" >> "$MASTER_LOG"
 echo "总共找到 $(echo "$PYTHON_FILES" | wc -l) 个Python文件" | tee -a "$MASTER_LOG"
 echo "" >> "$MASTER_LOG"
 
-# 初始化统计变量
+# 初始化统计变量和文件列表
 total_files=0
 success_files=0
 failed_files=0
+success_list=()
+failed_list=()
 
 # 按文件名排序并执行所有.py文件
 for file in $PYTHON_FILES; do
@@ -76,16 +78,18 @@ for file in $PYTHON_FILES; do
         echo "警告：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" | tee -a "$MASTER_LOG"
         echo "继续执行下一个文件..." | tee -a "$MASTER_LOG"
         ((failed_files++))
+        failed_list+=("$file")
     else
         echo "完成: $file (状态: 成功)" | tee -a "$MASTER_LOG"
         echo "日志文件: $log_file" >> "$MASTER_LOG"
         ((success_files++))
+        success_list+=("$file")
     fi
 
     echo "------------------------" >> "$MASTER_LOG"
 done
 
-# 记录总体完成信息和统计
+# 记录总体完成信息和统计到MASTER_LOG
 echo "==========================================" >> "$MASTER_LOG"
 echo "所有Python文件执行完毕！完成时间: $(date)" >> "$MASTER_LOG"
 echo "==========================================" >> "$MASTER_LOG"
@@ -93,9 +97,31 @@ echo "执行统计：" >> "$MASTER_LOG"
 echo "总文件数: $total_files" >> "$MASTER_LOG"
 echo "成功: $success_files" >> "$MASTER_LOG"
 echo "失败: $failed_files" >> "$MASTER_LOG"
+echo "" >> "$MASTER_LOG"
+
+# 记录成功文件列表到MASTER_LOG
+if [ ${#success_list[@]} -gt 0 ]; then
+    echo "执行成功的文件：" >> "$MASTER_LOG"
+    for i in "${!success_list[@]}"; do
+        echo "$((i+1)). ${success_list[i]}" >> "$MASTER_LOG"
+    done
+else
+    echo "没有文件执行成功" >> "$MASTER_LOG"
+fi
+echo "" >> "$MASTER_LOG"
+
+# 记录失败文件列表到MASTER_LOG
+if [ ${#failed_list[@]} -gt 0 ]; then
+    echo "执行失败的文件：" >> "$MASTER_LOG"
+    for i in "${!failed_list[@]}"; do
+        echo "$((i+1)). ${failed_list[i]}" >> "$MASTER_LOG"
+    done
+else
+    echo "没有文件执行失败" >> "$MASTER_LOG"
+fi
 echo "==========================================" >> "$MASTER_LOG"
 
-# 显示总结信息
+# 只在终端显示简要总结信息
 echo "所有Python文件执行完毕！"
 echo "查看执行摘要: $MASTER_LOG"
 echo "每个Python文件都有对应的日志文件"
@@ -108,6 +134,7 @@ echo "失败: $failed_files"
 # 如果有失败的文件，以非零状态退出
 if [ $failed_files -gt 0 ]; then
     echo "警告：有 $failed_files 个文件执行失败"
+    echo "详细信息请查看日志文件: $MASTER_LOG"
     exit 1
 else
     echo "所有文件执行成功！"
