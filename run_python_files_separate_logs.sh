@@ -9,6 +9,9 @@ if [ ! -d "$DIRECTORY" ]; then
     exit 1
 fi
 
+# 检查log目录是否存在，不存在则创建
+mkdir -p ./log
+
 # 创建总日志文件记录执行过程
 MASTER_LOG="./log/execution_summary.log"
 echo "==========================================" > "$MASTER_LOG"
@@ -16,8 +19,26 @@ echo "开始执行时间: $(date)" >> "$MASTER_LOG"
 echo "执行的目录: $DIRECTORY" >> "$MASTER_LOG"
 echo "==========================================" >> "$MASTER_LOG"
 
+# 获取所有Python文件并显示
+PYTHON_FILES=$(find "$DIRECTORY" -name "*.py" | sort)
+echo "找到以下Python文件：" | tee -a "$MASTER_LOG"
+echo "==========================================" >> "$MASTER_LOG"
+counter=1
+for file in $PYTHON_FILES; do
+    echo "$counter. $file" | tee -a "$MASTER_LOG"
+    ((counter++))
+done
+echo "==========================================" >> "$MASTER_LOG"
+echo "总共找到 $(echo "$PYTHON_FILES" | wc -l) 个Python文件" | tee -a "$MASTER_LOG"
+echo "" >> "$MASTER_LOG"
+
+# 初始化统计变量
+total_files=0
+success_files=0
+failed_files=0
+
 # 按文件名排序并执行所有.py文件
-for file in $(find "$DIRECTORY" -name "*.py" | sort); do
+for file in $PYTHON_FILES; do
     # 获取文件名（不含路径和扩展名）
     filename=$(basename "$file" .py)
     # 生成对应的日志文件名
@@ -48,23 +69,47 @@ for file in $(find "$DIRECTORY" -name "*.py" | sort); do
     # 记录到总日志文件
     echo "结束时间: $(date)" >> "$MASTER_LOG"
 
+    # 更新统计
+    ((total_files++))
+
     if [ $EXIT_STATUS -ne 0 ]; then
-        echo "错误：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" | tee -a "$MASTER_LOG"
-        echo "执行终止！" | tee -a "$MASTER_LOG"
-        exit 1
+        echo "警告：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" | tee -a "$MASTER_LOG"
+        echo "继续执行下一个文件..." | tee -a "$MASTER_LOG"
+        ((failed_files++))
     else
         echo "完成: $file (状态: 成功)" | tee -a "$MASTER_LOG"
         echo "日志文件: $log_file" >> "$MASTER_LOG"
+        ((success_files++))
     fi
 
     echo "------------------------" >> "$MASTER_LOG"
 done
 
-# 记录总体完成信息
+# 记录总体完成信息和统计
 echo "==========================================" >> "$MASTER_LOG"
 echo "所有Python文件执行完毕！完成时间: $(date)" >> "$MASTER_LOG"
 echo "==========================================" >> "$MASTER_LOG"
+echo "执行统计：" >> "$MASTER_LOG"
+echo "总文件数: $total_files" >> "$MASTER_LOG"
+echo "成功: $success_files" >> "$MASTER_LOG"
+echo "失败: $failed_files" >> "$MASTER_LOG"
+echo "==========================================" >> "$MASTER_LOG"
 
+# 显示总结信息
 echo "所有Python文件执行完毕！"
 echo "查看执行摘要: $MASTER_LOG"
 echo "每个Python文件都有对应的日志文件"
+echo ""
+echo "执行统计："
+echo "总文件数: $total_files"
+echo "成功: $success_files"
+echo "失败: $failed_files"
+
+# 如果有失败的文件，以非零状态退出
+if [ $failed_files -gt 0 ]; then
+    echo "警告：有 $failed_files 个文件执行失败"
+    exit 1
+else
+    echo "所有文件执行成功！"
+    exit 0
+fi
