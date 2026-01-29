@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置要执行的Python文件目录
-DIRECTORY="./scripts"  # 替换为你的目录路径
+DIRECTORY="./llm_models"  # 替换为你的目录路径
 
 # 检查目录是否存在
 if [ ! -d "$DIRECTORY" ]; then
@@ -10,7 +10,7 @@ if [ ! -d "$DIRECTORY" ]; then
 fi
 
 # 创建总日志文件记录执行过程
-MASTER_LOG="execution_summary.log"
+MASTER_LOG="./log/execution_summary.log"
 echo "==========================================" > "$MASTER_LOG"
 echo "开始执行时间: $(date)" >> "$MASTER_LOG"
 echo "执行的目录: $DIRECTORY" >> "$MASTER_LOG"
@@ -21,7 +21,7 @@ for file in $(find "$DIRECTORY" -name "*.py" | sort); do
     # 获取文件名（不含路径和扩展名）
     filename=$(basename "$file" .py)
     # 生成对应的日志文件名
-    log_file="${filename}.log"
+    log_file="./log/${filename}.log"
 
     echo "正在执行: $file" | tee -a "$MASTER_LOG"
     echo "日志文件: $log_file" >> "$MASTER_LOG"
