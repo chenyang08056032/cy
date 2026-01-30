@@ -1,7 +1,14 @@
 #!/bin/bash
 
 # 设置要执行的Python文件目录列表
-DIRECTORIES=("./llm_models" "./data_processing" "./utils")  # 替换为你的目录路径列表
+DIRECTORIES=(
+    #"./llm_models" 
+    "./embedding_models"
+    "./rerank_models" 
+    "./reward_models" 
+    "./vlm_models" 
+    # 添加更多目录... 
+    )    
 
 # 检查目录是否存在
 for dir in "${DIRECTORIES[@]}"; do
