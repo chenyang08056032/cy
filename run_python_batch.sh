@@ -2,11 +2,11 @@
 
 # 设置要执行的Python文件目录列表
 DIRECTORIES=(
-    #"./llm_models" 
-    "./embedding_models"
-    "./rerank_models" 
-    "./reward_models" 
+    "./llm_models" 
     "./vlm_models" 
+    "./rerank_models" 
+    "./reward_models"
+    "./embedding_models"
     # 添加更多目录... 
     )    
 
