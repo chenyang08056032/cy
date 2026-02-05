@@ -91,8 +91,8 @@ for file in "${PYTHON_FILES[@]}"; do
     echo "开始时间: $(date)" >> "$log_file"
     echo "==========================================" >> "$log_file"
 
-    # 执行Python文件，输出到对应的日志文件（覆盖写入）
-    python3 "$file" >> "$log_file" 2>&1
+    # 执行Python文件，输出到对应的日志文件（覆盖写入），设置90分钟超时
+    timeout 5400 python3 "$file" >> "$log_file" 2>&1
 
     # 获取执行状态
     EXIT_STATUS=$?
@@ -110,7 +110,11 @@ for file in "${PYTHON_FILES[@]}"; do
     ((total_files++))
 
     if [ $EXIT_STATUS -ne 0 ]; then
-        echo "警告：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" >> "$MASTER_LOG"
+        if [ $EXIT_STATUS -eq 124 ]; then
+            echo "警告：执行 $file 时超时 (退出码: $EXIT_STATUS)" >> "$MASTER_LOG"
+        else
+            echo "警告：执行 $file 时出现问题 (退出码: $EXIT_STATUS)" >> "$MASTER_LOG"
+        fi
         echo "继续执行下一个文件..." >> "$MASTER_LOG"
         ((failed_files++))
         failed_list+=("$file")
