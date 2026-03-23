@@ -14,7 +14,7 @@ python3 -m sglang.launch_server \
     --device npu \
     --tp-size 16 \
     --attn-cp-size 2 \
-    --mem-fraction-static 0.8 \
+    --mem-fraction-static 0.7 \
     --max-running-requests 1 \
     --host 172.22.3.71 \
     --port 8000
