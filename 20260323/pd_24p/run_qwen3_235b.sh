@@ -27,7 +27,7 @@ do
       --chunked-prefill-size -1 \
       --skip-server-warmup \
       --device npu \
-      --tp-size 16 \
+      --tp-size 32 \
       --attn-cp-size 2 \
       --mem-fraction-static 0.7 \
       --max-running-requests 1 \
