@@ -1,0 +1,22 @@
+export SGLANG_SET_CPU_AFFINITY=1
+export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+export STREAMS_PER_DEVICE=32
+export HCCL_BUFFSIZE=1536
+export SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK=32
+export SGLANG_DEEPEP_BF16_DISPATCH=1
+export ASCEND_USE_FIA=1
+
+python -m sglang.launch_server \
+   --model-path /root/.cache/modelscope/hub/models/Qwen/Qwen3-235B-A22B \
+   --tp-size 16 \
+   --attn-cp-size 4 \
+   --trust-remote-code \
+   --attention-backend ascend \
+   --device npu \
+   --watchdog-timeout 9000 \
+   --mem-fraction-static 0.8 \
+   --max-running-requests 1 \
+   --disable-radix-cache \
+   --disaggregation-transfer-backend ascend \
+   --disaggregation-mode prefill \
+   --port 30000
