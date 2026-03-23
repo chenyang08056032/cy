@@ -4,8 +4,8 @@ python3 -m sglang.bench_serving \
     --port 8000 \
     --dataset-name random \
     --random-input-len 256000 \
-    --random-output-len 2048 \
+    --random-output-len 1000 \
     --random-range-ratio 1 \
-    --max-concurrency 480 \
-    --num-prompt 480 \
-    --dataset-path /home/c30044170/test/dataset/random/ShareGPT_V3_unfiltered_cleaned_split.json
+    --max-concurrency 1 \
+    --num-prompt 4 \
+    --dataset-path /data/c30044170/dataset/random/ShareGPT_V3_unfiltered_cleaned_split.json
