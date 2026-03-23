@@ -6,7 +6,7 @@ export SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK=32
 export SGLANG_DEEPEP_BF16_DISPATCH=1
 
 python -m sglang.launch_server \
-   --model-path Qwen/Qwen3-235B-A22B-Instruct-2507 \
+   --model-path /root/.cache/modelscope/hub/models/Qwen/Qwen3-235B-A22B \
    --tp-size 16 \
    --trust-remote-code \
    --attention-backend ascend \
