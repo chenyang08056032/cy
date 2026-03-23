@@ -3,8 +3,8 @@ python3 -m sglang.bench_serving \
     --host 172.22.3.71 \
     --port 6689 \
     --dataset-name random \
-    --random-input-len 262144 \
-    --random-output-len 2048 \
+    --random-input-len 256000 \
+    --random-output-len 2000 \
     --random-range-ratio 1 \
     --max-concurrency 1 \
     --num-prompt 4 \
