@@ -12,8 +12,7 @@ python3 -m sglang.launch_server \
     --disable-radix-cache \
     --chunked-prefill-size -1 \
     --skip-server-warmup \
-    --base-gpu-id 8 \
-    --tp-size 8 \
+    --tp-size 16 \
     --max-running-requests 32 \
     --host 172.22.3.160 \
     --port 8232

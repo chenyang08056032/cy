@@ -12,8 +12,7 @@ python3 -m sglang.launch_server \
     --chunked-prefill-size -1 \
     --skip-server-warmup \
     --device npu \
-    --base-gpu-id 0 \
-    --tp-size 8 \
+    --tp-size 16 \
     --attn-cp-size 2 \
     --max-running-requests 1 \
     --host 172.22.3.71 \
