@@ -8,7 +8,8 @@ export ASCEND_USE_FIA=1
 
 python -m sglang.launch_server \
    --model-path /root/.cache/modelscope/hub/models/vllm-ascend/Qwen3-235B-A22B-W8A8 \
-   --tp-size 16 \
+   --tp-size 8 \
+   --base-gpu-id 0 \
    --attn-cp-size 4 \
    --trust-remote-code \
    --attention-backend ascend \

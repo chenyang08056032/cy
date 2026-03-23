@@ -8,7 +8,8 @@ export ASCEND_MF_STORE_URL="tcp://127.0.0.1:12345"
 
 python -m sglang.launch_server \
    --model-path /root/.cache/modelscope/hub/models/vllm-ascend/Qwen3-235B-A22B-W8A8 \
-   --tp-size 16 \
+   --tp-size 8 \
+   --base-gpu-id 8 \
    --trust-remote-code \
    --attention-backend ascend \
    --device npu \
