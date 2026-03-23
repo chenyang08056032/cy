@@ -3,7 +3,7 @@ export SGLANG_SET_CPU_AFFINITY=1
 export ASCEND_MF_STORE_URL="tcp://172.22.3.71:12345"
 
 python3 -m sglang.launch_server \
-    --model-path /root/.cache/modelscope/hub/models/vllm-ascend/Qwen3-235B-A22B-W8A8 \
+    --model-path /root/.cache/modelscope/hub/models/Qwen/Qwen3-235B-A22B-Instruct-2507 \
     --disaggregation-mode prefill \
     --disaggregation-transfer-backend ascend \
     --disaggregation-bootstrap-port 8995 \
