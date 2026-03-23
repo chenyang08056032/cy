@@ -19,4 +19,5 @@ python -m sglang.launch_server \
    --disable-radix-cache \
    --disaggregation-transfer-backend ascend \
    --disaggregation-mode prefill \
+   --chunked-prefill-size -1 \
    --port 30000
