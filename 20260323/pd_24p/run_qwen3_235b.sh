@@ -3,7 +3,7 @@ export SGLANG_SET_CPU_AFFINITY=1
 export ASCEND_MF_STORE_URL="tcp://172.22.3.71:12345"
 
 # p节点IP
-P_IP=('172.22.3.71' '172.22.3.71')
+P_IP=('172.22.3.71' '172.22.3.166')
 # D节点IP D节点首节点IP
 D_IP=('172.22.3.160' '61.47.19.79')
 
@@ -31,7 +31,7 @@ do
       --attn-cp-size 2 \
       --mem-fraction-static 0.7 \
       --max-running-requests 1 \
-      --host 172.22.3.71 \
+      --host ${P_IP[$i]} \
       --port 8000 \
       --dist-init-addr 172.22.3.71:5000 \
       --nnodes 2 --node-rank $i \
@@ -58,7 +58,7 @@ do
       --skip-server-warmup \
       --tp-size 16 \
       --max-running-requests 32 \
-      --host 172.22.3.160 \
+      --host ${D_IP[$i]} \
       --port 8232
       NODE_RANK=$i
       break
