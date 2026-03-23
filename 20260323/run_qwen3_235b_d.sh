@@ -4,6 +4,7 @@ export STREAMS_PER_DEVICE=32
 export HCCL_BUFFSIZE=1536
 export SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK=32
 export SGLANG_DEEPEP_BF16_DISPATCH=1
+export ASCEND_MF_STORE_URL="tcp://127.0.0.1:12345"
 
 python -m sglang.launch_server \
    --model-path /root/.cache/modelscope/hub/models/vllm-ascend/Qwen3-235B-A22B-W8A8 \
