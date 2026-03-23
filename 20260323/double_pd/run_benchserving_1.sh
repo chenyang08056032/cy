@@ -7,5 +7,5 @@ python3 -m sglang.bench_serving \
     --random-output-len 2000 \
     --random-range-ratio 1 \
     --max-concurrency 1 \
-    --num-prompt 4 \
+    --num-prompt 1 \
     --dataset-path /data/c30044170/dataset/random/ShareGPT_V3_unfiltered_cleaned_split.json
