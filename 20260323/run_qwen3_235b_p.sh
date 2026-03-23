@@ -14,7 +14,7 @@ python -m sglang.launch_server \
    --attention-backend ascend \
    --device npu \
    --watchdog-timeout 9000 \
-   --mem-fraction-static 0.8 \
+   --mem-fraction-static 0.5 \
    --max-running-requests 1 \
    --disable-radix-cache \
    --disaggregation-transfer-backend ascend \
