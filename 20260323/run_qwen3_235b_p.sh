@@ -21,4 +21,5 @@ python -m sglang.launch_server \
    --disaggregation-transfer-backend ascend \
    --disaggregation-mode prefill \
    --chunked-prefill-size -1 \
+   --disaggregation-bootstrap-port 8995 \
    --port 30000
