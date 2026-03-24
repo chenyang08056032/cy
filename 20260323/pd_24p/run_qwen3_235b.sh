@@ -13,14 +13,14 @@ LOCAL_HOST1=`hostname -I|awk -F " " '{print$1}'`
 LOCAL_HOST2=`hostname -I|awk -F " " '{print$2}'`
 echo "${LOCAL_HOST1}"
 echo "${LOCAL_HOST2}"
-
+MODEL_PATH=/root/.cache/modelscope/hub/models/Qwen/Qwen3-235B-A22B-Instruct-2507
 # prefill
 for i in "${!P_IP[@]}";
 do
     if [[ "$LOCAL_HOST1" == "${P_IP[$i]}" || "$LOCAL_HOST2" == "${P_IP[$i]}" ]];
     then
       python3 -m sglang.launch_server \
-      --model-path /root/.cache/modelscope/hub/models/Qwen/Qwen3-235B-A22B-Instruct-2507 \
+      --model-path ${MODEL_PATH} \
       --disaggregation-mode prefill \
       --disaggregation-transfer-backend ascend \
       --disaggregation-bootstrap-port 8995 \
@@ -48,7 +48,7 @@ do
     then
       echo "${D_IP[$i]}"
       python3 -m sglang.launch_server \
-      --model-path /root/.cache/modelscope/hub/models/Qwen/Qwen3-235B-A22B-Instruct-2507 \
+      --model-path ${MODEL_PATH} \
       --disaggregation-mode decode \
       --disaggregation-transfer-backend ascend \
       --attention-backend ascend \
