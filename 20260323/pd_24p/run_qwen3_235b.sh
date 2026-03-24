@@ -1,11 +1,13 @@
 export ASCEND_USE_FIA=1
 export SGLANG_SET_CPU_AFFINITY=1
 export ASCEND_MF_STORE_URL="tcp://172.22.3.71:12345"
+export HCCL_SOCKET_IFNAME=enp23s0f3
+export GLOO_SOCKET_IFNAME=enp23s0f3
 
 # p节点IP
 P_IP=('172.22.3.71' '172.22.3.166')
 # D节点IP D节点首节点IP
-D_IP=('172.22.3.160' '61.47.19.79')
+D_IP=('172.22.3.160')
 
 LOCAL_HOST1=`hostname -I|awk -F " " '{print$1}'`
 LOCAL_HOST2=`hostname -I|awk -F " " '{print$2}'`
@@ -64,9 +66,3 @@ do
       break
     fi
 done
-
-
-
-
-
-# decode
