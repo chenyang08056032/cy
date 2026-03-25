@@ -23,6 +23,7 @@ do
       export HCCL_BUFFSIZE=4000
       export DEEPEP_NORMAL_LONG_SEQ_PER_ROUND_TOKENS=2048
       export DEEPEP_NORMAL_LONG_SEQ_ROUND=32
+      export SGLANG_DEEPEP_BF16_DISPATCH=1
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode prefill \
