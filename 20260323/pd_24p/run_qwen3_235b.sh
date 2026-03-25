@@ -19,6 +19,10 @@ for i in "${!P_IP[@]}";
 do
     if [[ "$LOCAL_HOST1" == "${P_IP[$i]}" || "$LOCAL_HOST2" == "${P_IP[$i]}" ]];
     then
+      export DEEP_NORMAL_MODE_USE_INT8_QUANT=0
+      export HCCL_BUFFSIZE=4000
+      export DEEPEP_NORMAL_LONG_SEQ_PER_ROUND_TOKENS=4096
+      export DEEPEP_NORMAL_LONG_SEQ_ROUND=16
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode prefill \
@@ -37,7 +41,7 @@ do
       --port 8000 \
       --dist-init-addr 172.22.3.71:5000 \
       --nnodes 2 --node-rank $i \
-      --moe-a2a-backend deepep --deepep-mode normal --ep-size 8
+      --moe-a2a-backend deepep --deepep-mode normal
       NODE_RANK=$i
       break
     fi
@@ -48,6 +52,7 @@ do
     if [[ "$LOCAL_HOST1" == "${D_IP[$i]}" || "$LOCAL_HOST2" == "${D_IP[$i]}" ]];
     then
       echo "${D_IP[$i]}"
+      export SGLANG_DEEPEP_BF16_DISPATCH=1
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode decode \
@@ -62,7 +67,8 @@ do
       --tp-size 16 \
       --max-running-requests 32 \
       --host ${D_IP[$i]} \
-      --port 8232
+      --port 8232 \
+      --moe-a2a-backend deepep --deepep-mode low_latency
       NODE_RANK=$i
       break
     fi
