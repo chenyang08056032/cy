@@ -34,14 +34,14 @@ do
       --skip-server-warmup \
       --device npu \
       --tp-size 32 \
-      --attn-cp-size 8 \
+      --attn-cp-size 4 \
       --mem-fraction-static 0.5 \
       --max-running-requests 1 \
       --host ${P_IP[$i]} \
       --port 8000 \
       --dist-init-addr 172.22.3.71:5000 \
       --nnodes 2 --node-rank $i \
-      --moe-a2a-backend deepep --deepep-mode normal
+      --moe-a2a-backend deepep --deepep-mode low_latency
       NODE_RANK=$i
       break
     fi
