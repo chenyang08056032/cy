@@ -52,6 +52,9 @@ do
     then
       echo "${D_IP[$i]}"
       export SGLANG_DEEPEP_BF16_DISPATCH=1
+      export HCCL_BUFFSIZE=4000
+      export DEEPEP_NORMAL_LONG_SEQ_PER_ROUND_TOKENS=4096
+      export DEEPEP_NORMAL_LONG_SEQ_ROUND=16
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode decode \
@@ -67,7 +70,8 @@ do
       --max-running-requests 32 \
       --host ${D_IP[$i]} \
       --port 8232 \
-      --moe-a2a-backend deepep --deepep-mode low_latency
+      --moe-a2a-backend deepep --deepep-mode low_latency \
+      --disable-overlap-schedule
       NODE_RANK=$i
       break
     fi
