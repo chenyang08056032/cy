@@ -30,7 +30,7 @@ do
       --disaggregation-bootstrap-port 8995 \
       --attention-backend ascend \
       --disable-radix-cache \
-      --chunked-prefill-size -1 \
+      --chunked-prefill-size 8192 \
       --skip-server-warmup \
       --device npu \
       --tp-size 32 \
