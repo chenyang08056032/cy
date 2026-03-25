@@ -67,7 +67,7 @@ do
       --max-running-requests 32 \
       --host ${D_IP[$i]} \
       --port 8232 \
-      --moe-a2a-backend deepep --deepep-mode auto
+      --moe-a2a-backend deepep --deepep-mode normal
       NODE_RANK=$i
       break
     fi
