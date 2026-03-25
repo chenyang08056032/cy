@@ -35,7 +35,7 @@ do
       --device npu \
       --tp-size 32 \
       --attn-cp-size 4 \
-      --mem-fraction-static 0.7 \
+      --mem-fraction-static 0.5 \
       --max-running-requests 1 \
       --host ${P_IP[$i]} \
       --port 8000 \
