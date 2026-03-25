@@ -34,6 +34,7 @@ do
       --skip-server-warmup \
       --device npu \
       --tp-size 32 \
+      --attn-cp-size 2 \
       --mem-fraction-static 0.5 \
       --max-running-requests 1 \
       --host ${P_IP[$i]} \
