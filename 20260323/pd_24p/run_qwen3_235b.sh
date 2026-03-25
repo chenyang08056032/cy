@@ -61,13 +61,13 @@ do
       --disable-cuda-graph \
       --device npu \
       --disable-radix-cache \
-      --chunked-prefill-size -1 \
+      --chunked-prefill-size 8192 \
       --skip-server-warmup \
       --tp-size 16 \
       --max-running-requests 32 \
       --host ${D_IP[$i]} \
       --port 8232 \
-      --moe-a2a-backend deepep --deepep-mode normal
+      --moe-a2a-backend deepep --deepep-mode low_latency
       NODE_RANK=$i
       break
     fi
