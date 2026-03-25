@@ -36,7 +36,8 @@ do
       --host ${P_IP[$i]} \
       --port 8000 \
       --dist-init-addr 172.22.3.71:5000 \
-      --nnodes 2 --node-rank $i
+      --nnodes 2 --node-rank $i \
+      --enable-ep-moe --ep-size 8
       NODE_RANK=$i
       break
     fi
