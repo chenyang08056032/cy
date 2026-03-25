@@ -52,7 +52,6 @@ do
     then
       echo "${D_IP[$i]}"
       export SGLANG_DEEPEP_BF16_DISPATCH=1
-      export SGLANG_NPU_FUSED_MOE_MODE=1
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode decode \
