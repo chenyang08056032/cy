@@ -51,7 +51,6 @@ do
     if [[ "$LOCAL_HOST1" == "${D_IP[$i]}" || "$LOCAL_HOST2" == "${D_IP[$i]}" ]];
     then
       echo "${D_IP[$i]}"
-      export SGLANG_DEEPEP_BF16_DISPATCH=1
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode decode \
