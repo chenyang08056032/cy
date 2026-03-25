@@ -37,7 +37,7 @@ do
       --port 8000 \
       --dist-init-addr 172.22.3.71:5000 \
       --nnodes 2 --node-rank $i \
-      --enable-ep-moe --ep-size 8
+      --moe-a2a-backend deepep --deepep-mode normal --ep-size 8
       NODE_RANK=$i
       break
     fi
