@@ -51,6 +51,7 @@ do
     if [[ "$LOCAL_HOST1" == "${D_IP[$i]}" || "$LOCAL_HOST2" == "${D_IP[$i]}" ]];
     then
       echo "${D_IP[$i]}"
+      export SGLANG_DEEPEP_BF16_DISPATCH=1
       python3 -m sglang.launch_server \
       --model-path ${MODEL_PATH} \
       --disaggregation-mode decode \
@@ -66,7 +67,7 @@ do
       --max-running-requests 32 \
       --host ${D_IP[$i]} \
       --port 8232 \
-      --moe-a2a-backend deepep --deepep-mode low_latency
+      --moe-a2a-backend deepep --deepep-mode auto
       NODE_RANK=$i
       break
     fi
