@@ -40,7 +40,7 @@ do
       --port 8000 \
       --dist-init-addr 172.22.3.71:5000 \
       --nnodes 2 --node-rank $i \
-      --moe-a2a-backend deepep --deepep-mode normal
+      --moe-a2a-backend none --deepep-mode auto
       NODE_RANK=$i
       break
     fi
@@ -67,7 +67,7 @@ do
       --max-running-requests 32 \
       --host ${D_IP[$i]} \
       --port 8232 \
-      --moe-a2a-backend deepep --deepep-mode low_latency
+      --moe-a2a-backend none --deepep-mode low_latency
       NODE_RANK=$i
       break
     fi
