@@ -40,7 +40,7 @@ LOCAL_HOST1=`hostname -I|awk -F " " '{print$1}'`
 LOCAL_HOST2=`hostname -I|awk -F " " '{print$2}'`
 echo "${LOCAL_HOST1}"
 echo "${LOCAL_HOST2}"
-MODEL_PATH=/root/.cache/modelscope/hub/models/QwEco-Tech/Qwen3.5-397B-A17B-w8a8-mtp
+MODEL_PATH=/root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp
 
 # prefill
 for i in "${!P_IP[@]}"; do
