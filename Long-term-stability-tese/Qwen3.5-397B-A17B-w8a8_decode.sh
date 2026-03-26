@@ -53,7 +53,7 @@ for i in "${!D_IP[@]}"; do
       --nnodes 1 \
       --node-rank 0 \
       --chunked-prefill-size -1 \
-      --max-prefill-tokens 65536 \
+      --max-prefill-tokens 131072 \
       --disable-radix-cache \
       --trust-remote-code \
       --host ${D_IP[$i]} \
@@ -66,7 +66,7 @@ for i in "${!D_IP[@]}"; do
       --quantization modelslim \
       --enable-multimodal \
       --mm-attention-backend ascend_attn \
-      --max-total-tokens 1200000 \
+      --max-total-tokens 600000 \
       --dtype bfloat16 \
       --mamba-ssm-dtype bfloat16 \
       --disaggregation-mode decode \
