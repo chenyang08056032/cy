@@ -33,9 +33,9 @@ export SGLANG_DISAGGREGATION_BOOTSTRAP_TIMEOUT=3600
 export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=3600
 
 # p节点IP
-P_IP=('172.22.3.71' '172.22.3.166')
+P_IP=('172.22.3.181')
 # D节点IP D节点首节点IP
-D_IP=('172.22.3.160')
+D_IP=('172.22.3.166')
 LOCAL_HOST1=`hostname -I|awk -F " " '{print$1}'`
 LOCAL_HOST2=`hostname -I|awk -F " " '{print$2}'`
 echo "${LOCAL_HOST1}"
@@ -56,7 +56,7 @@ for i in "${!P_IP[@]}"; do
       --max-prefill-tokens 65536 \
       --disable-radix-cache \
       --trust-remote-code \
-      --host 0.0.0.0 \
+      --host ${P_IP[$i]} \
       --max-running-requests 256 \
       --mem-fraction-static 0.85 \
       --port 8000 \
