@@ -74,11 +74,11 @@ for i in "${!P_IP[@]}"; do
       --mamba-ssm-dtype bfloat16 \
       --speculative-draft-model-quantization unquant \
       --dp-size 1 \
-      --enable-dp-attention \
-      --speculative-algorithm NEXTN \
-      --speculative-num-steps 3 \
-      --speculative-eagle-topk 1 \
-      --speculative-num-draft-tokens 4
+      --enable-dp-attention
+#      --speculative-algorithm NEXTN \
+#      --speculative-num-steps 3 \
+#      --speculative-eagle-topk 1 \
+#      --speculative-num-draft-tokens 4
     NODE_RANK=$i
     break
   fi

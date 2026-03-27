@@ -71,11 +71,11 @@ for i in "${!D_IP[@]}"; do
       --mamba-ssm-dtype bfloat16 \
       --disaggregation-mode decode \
       --disaggregation-transfer-backend ascend \
-      --speculative-draft-model-quantization unquant \
-      --speculative-algorithm NEXTN \
-      --speculative-num-steps 3 \
-      --speculative-eagle-topk 1 \
-      --speculative-num-draft-tokens 4
+      --speculative-draft-model-quantization unquant
+#      --speculative-algorithm NEXTN \
+#      --speculative-num-steps 3 \
+#      --speculative-eagle-topk 1 \
+#      --speculative-num-draft-tokens 4
     NODE_RANK=$i
     break
   fi
