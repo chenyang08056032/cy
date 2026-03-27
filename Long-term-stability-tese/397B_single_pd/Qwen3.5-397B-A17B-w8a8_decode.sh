@@ -45,7 +45,7 @@ python3 -m sglang.launch_server \
         --deepep-mode low_latency \
         --mem-fraction-static 0.855555 \
         --port 8001 \
-        --cuda-graph-bs 8 \
+        --cuda-graph-bs 16 \
         --quantization modelslim \
         --enable-multimodal  \
         --mm-attention-backend ascend_attn --max-total-tokens 300000 \
