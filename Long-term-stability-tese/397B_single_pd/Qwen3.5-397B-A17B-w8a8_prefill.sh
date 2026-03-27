@@ -33,18 +33,34 @@ export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=3600
 export SGLANG_ENABLE_SPEC_V2=1
 export SGLANG_ENABLE_OVERLAP_PLAN_STREAM=1
 python3 -m sglang.launch_server \
-        --model-path /root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp \
-        --attention-backend ascend \
-        --device npu \
-        --tp-size 16 --nnodes 1 --node-rank 0 \
-        --chunked-prefill-size -1 --max-prefill-tokens 28672 \
-        --disable-radix-cache \
-        --trust-remote-code \
-        --host 172.22.3.181 --max-running-requests 1 \
-        --mem-fraction-static 0.85 \
-        --port 8999 \
-        --cuda-graph-bs 2 4 6 8 10 16 20 24 28 32 48 64 128 \
-        --quantization modelslim \
-        --enable-multimodal --skip-server-warmup  --disable-cuda-graph --disaggregation-mode prefill --disaggregation-transfer-backend ascend  \
-        --mm-attention-backend ascend_attn  --moe-a2a-backend deepep --deepep-mode normal --speculative-draft-model-quantization unquant \
-        --dtype bfloat16 --mamba-ssm-dtype bfloat16 --speculative-algorithm NEXTN --speculative-num-steps 3 --speculative-eagle-topk 1 --speculative-num-draft-tokens 4
+  --model-path /root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp \
+  --attention-backend ascend \
+  --device npu \
+  --tp-size 16 \
+  --nnodes 1 \
+  --node-rank 0 \
+  --chunked-prefill-size -1 \
+  --max-prefill-tokens 28672 \
+  --disable-radix-cache \
+  --trust-remote-code \
+  --host 172.22.3.181 \
+  --max-running-requests 1 \
+  --mem-fraction-static 0.85 \
+  --port 8999 \
+  --cuda-graph-bs 2 4 6 8 10 16 20 24 28 32 48 64 128 \
+  --quantization modelslim \
+  --enable-multimodal \
+  --skip-server-warmup \
+  --disable-cuda-graph \
+  --disaggregation-mode prefill \
+  --disaggregation-transfer-backend ascend \
+  --mm-attention-backend ascend_attn \
+  --moe-a2a-backend deepep \
+  --deepep-mode normal \
+  --speculative-draft-model-quantization unquant \
+  --dtype bfloat16 \
+  --mamba-ssm-dtype bfloat16 \
+  --speculative-algorithm NEXTN \
+  --speculative-num-steps 3 \
+  --speculative-eagle-topk 1 \
+  --speculative-num-draft-tokens 4

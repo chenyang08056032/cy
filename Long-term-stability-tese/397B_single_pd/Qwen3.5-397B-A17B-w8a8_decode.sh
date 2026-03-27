@@ -33,20 +33,34 @@ export ASCEND_MF_STORE_URL="tcp://172.22.3.181:24669"
 export SGLANG_DISAGGREGATION_BOOTSTRAP_TIMEOUT=3600
 export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=3600
 python3 -m sglang.launch_server \
-        --model-path /root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp \
-        --attention-backend ascend \
-        --device npu \
-        --tp-size 16 --nnodes 1 --node-rank 0 \
-        --chunked-prefill-size -1 --max-prefill-tokens 28672 \
-        --disable-radix-cache \
-        --trust-remote-code \
-        --host 172.22.3.166 --max-running-requests 16 \
-        --moe-a2a-backend deepep \
-        --deepep-mode low_latency \
-        --mem-fraction-static 0.855555 \
-        --port 8001 \
-        --cuda-graph-bs 16 \
-        --quantization modelslim \
-        --enable-multimodal  \
-        --mm-attention-backend ascend_attn --max-total-tokens 300000 \
-        --dtype bfloat16 --mamba-ssm-dtype bfloat16 --disaggregation-mode decode --disaggregation-transfer-backend ascend --skip-server-warmup --speculative-algorithm NEXTN --speculative-num-steps 3 --speculative-eagle-topk 1 --speculative-num-draft-tokens 4 --speculative-draft-model-quantization unquant
+  --model-path /root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp \
+  --attention-backend ascend \
+  --device npu \
+  --tp-size 16 \
+  --nnodes 1 \
+  --node-rank 0 \
+  --chunked-prefill-size -1 \
+  --max-prefill-tokens 28672 \
+  --disable-radix-cache \
+  --trust-remote-code \
+  --host 172.22.3.166 \
+  --max-running-requests 16 \
+  --moe-a2a-backend deepep \
+  --deepep-mode low_latency \
+  --mem-fraction-static 0.855555 \
+  --port 8001 \
+  --cuda-graph-bs 16 \
+  --quantization modelslim \
+  --enable-multimodal \
+  --mm-attention-backend ascend_attn \
+  --max-total-tokens 300000 \
+  --dtype bfloat16 \
+  --mamba-ssm-dtype bfloat16 \
+  --disaggregation-mode decode \
+  --disaggregation-transfer-backend ascend \
+  --skip-server-warmup \
+  --speculative-algorithm NEXTN \
+  --speculative-num-steps 3 \
+  --speculative-eagle-topk 1 \
+  --speculative-num-draft-tokens 4 \
+  --speculative-draft-model-quantization unquant
