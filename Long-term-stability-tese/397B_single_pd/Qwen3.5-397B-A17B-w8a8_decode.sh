@@ -36,11 +36,11 @@ python3 -m sglang.launch_server \
         --model-path /root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp \
         --attention-backend ascend \
         --device npu \
-        --tp-size 8 --nnodes 1 --node-rank 0 \
+        --tp-size 16 --nnodes 1 --node-rank 0 \
         --chunked-prefill-size -1 --max-prefill-tokens 28672 \
         --disable-radix-cache \
         --trust-remote-code \
-        --host 172.22.3.181 --max-running-requests 8 \
+        --host 172.22.3.181 --max-running-requests 16 \
         --moe-a2a-backend deepep \
     --deepep-mode low_latency \
         --mem-fraction-static 0.855555 \
