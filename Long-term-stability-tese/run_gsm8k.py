@@ -9,7 +9,7 @@ args = SimpleNamespace(
     data_path=None,
     num_questions=200,
     max_new_tokens=512,
-    parallel=128,
+    parallel=16,
     host=f"http://{host}",
     port=int(port),
 )
