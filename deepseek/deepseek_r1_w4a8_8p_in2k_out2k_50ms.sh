@@ -7,8 +7,6 @@ sysctl -w kernel.sched_migration_cost_ns=50000
 # 绑核
 export SGLANG_SET_CPU_AFFINITY=1
 # 设置PYTHONPATH
-cd /home/w00964934/sglang_main/sglang_main_0325/sglang
-export PYTHONPATH=${PWD}/python:$PYTHONPATH
 unset https_proxy
 unset http_proxy
 unset HTTPS_PROXY
@@ -23,8 +21,8 @@ export STREAMS_PER_DEVICE=32
 export SGLANG_SCHEDULER_DECREASE_PREFILL_IDLE=1
 export SGLANG_PREFILL_DELAYER_MAX_DELAY_PASSES=200
 # 网卡
-export HCCL_SOCKET_IFNAME=lo
-export GLOO_SOCKET_IFNAME=lo
+export HCCL_SOCKET_IFNAME=enp23s0f3
+export GLOO_SOCKET_IFNAME=enp23s0f3
 # 通信buffer
 export SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK=88
 export HCCL_BUFFSIZE=1600
@@ -32,8 +30,7 @@ export DEEPEP_NORMAL_LONG_SEQ_ROUND=10
 export DEEPEP_NORMAL_LONG_SEQ_PER_ROUND_TOKENS=512
 
 # mtp quant path
-#MODEL_PATH=/home/weights/deepseekr1_w4a8_pertoken
-MODEL_PATH=/data/ascend-ci-share-pkking-sglang/modelscope/hub/models/deepseekr1_w4a8_pertoken
+MODEL_PATH=/root/.cache/modelscope/hub/models/DeepSeek-R1-0528-w4a8-per-channel
 export DEEP_NORMAL_MODE_USE_INT8_QUANT=1
 export SGLANG_NPU_USE_MLAPO=1
 export SGLANG_ENABLE_SPEC_V2=1
