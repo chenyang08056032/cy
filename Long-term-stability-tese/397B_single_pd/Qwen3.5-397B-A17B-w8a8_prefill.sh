@@ -40,7 +40,7 @@ python3 -m sglang.launch_server \
         --chunked-prefill-size -1 --max-prefill-tokens 28672 \
         --disable-radix-cache \
         --trust-remote-code \
-        --host 172.22.3.166 --max-running-requests 1 \
+        --host 172.22.3.181 --max-running-requests 1 \
         --mem-fraction-static 0.85 \
         --port 8999 \
         --cuda-graph-bs 2 4 6 8 10 16 20 24 28 32 48 64 128 \

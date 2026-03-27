@@ -40,7 +40,7 @@ python3 -m sglang.launch_server \
         --chunked-prefill-size -1 --max-prefill-tokens 28672 \
         --disable-radix-cache \
         --trust-remote-code \
-        --host 172.22.3.181 --max-running-requests 16 \
+        --host 172.22.3.166 --max-running-requests 16 \
         --moe-a2a-backend deepep \
         --deepep-mode low_latency \
         --mem-fraction-static 0.855555 \
