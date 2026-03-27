@@ -57,12 +57,12 @@ for i in "${!D_IP[@]}"; do
       --disable-radix-cache \
       --trust-remote-code \
       --host ${D_IP[$i]} \
-      --max-running-requests 256 \
+      --max-running-requests 128 \
       --moe-a2a-backend deepep \
       --deepep-mode low_latency \
       --mem-fraction-static 0.85 \
       --port 8000 \
-      --cuda-graph-bs 1 2 3 4 8 9 10 11 12 13 14 15 16 \
+      --cuda-graph-bs 1 2 3 4 8 9 10 11 12 13 14 15 16 128 \
       --quantization modelslim \
       --enable-multimodal \
       --mm-attention-backend ascend_attn \

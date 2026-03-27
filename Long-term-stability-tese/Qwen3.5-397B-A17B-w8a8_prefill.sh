@@ -57,10 +57,10 @@ for i in "${!P_IP[@]}"; do
       --disable-radix-cache \
       --trust-remote-code \
       --host ${P_IP[$i]} \
-      --max-running-requests 256 \
+      --max-running-requests 128 \
       --mem-fraction-static 0.85 \
       --port 8000 \
-      --cuda-graph-bs 1 2 3 4 8 9 10 11 12 13 14 15 16 \
+      --cuda-graph-bs 1 2 3 4 8 9 10 11 12 13 14 15 16 128 \
       --quantization modelslim \
       --enable-multimodal \
       --moe-a2a-backend deepep \
@@ -73,8 +73,6 @@ for i in "${!P_IP[@]}"; do
       --dtype bfloat16 \
       --mamba-ssm-dtype bfloat16 \
       --speculative-draft-model-quantization unquant \
-      --dp-size 1 \
-      --enable-dp-attention
 #      --speculative-algorithm NEXTN \
 #      --speculative-num-steps 3 \
 #      --speculative-eagle-topk 1 \
