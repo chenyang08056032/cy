@@ -33,7 +33,7 @@ export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=3600
 export SGLANG_ENABLE_SPEC_V2=1
 export SGLANG_ENABLE_OVERLAP_PLAN_STREAM=1
 python3 -m sglang.launch_server \
-        --model-path /home/weights/Qwen3.5-397B-A17B-w8a8 \
+        --model-path /root/.cache/modelscope/hub/models/Eco-Tech/Qwen3.5-397B-A17B-w8a8-mtp \
         --attention-backend ascend \
         --device npu \
         --tp-size 8 --nnodes 1 --node-rank 0 \
