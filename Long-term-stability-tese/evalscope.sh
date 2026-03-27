@@ -18,5 +18,5 @@ evalscope eval \
         "extra_body":{"chat_template_kwargs":{"enable_thinking":false}}}' \
   --datasets gsm8k \
   --dataset-dir "/data/c30044170/dataset/gsm8k" \
-  --eval-batch-size 32 \
+  --eval-batch-size 16 \
   --ignore-errors --limit 200
