@@ -14,8 +14,7 @@ export ASCEND_LAUNCH_BLOCKING=1
 # cann
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 source /usr/local/Ascend/nnal/atb/set_env.sh
-#cd /home/hexq/mtp/sglang_project
-#export PYTHONPATH=${PWD}/python:$PYTHONPATH
+
 export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=3600
 export STREAMS_PER_DEVICE=32
 export SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK=128
