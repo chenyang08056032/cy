@@ -78,7 +78,6 @@ do
     fi
 done
 
-MODEL_PATH=/home/weights/deepseekr1_w4a8_pertoken
 # decode
 for i in "${!D_IP[@]}";
 do
