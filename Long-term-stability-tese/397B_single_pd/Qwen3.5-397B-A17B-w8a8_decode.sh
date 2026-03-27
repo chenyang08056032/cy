@@ -42,11 +42,11 @@ python3 -m sglang.launch_server \
         --trust-remote-code \
         --host 172.22.3.181 --max-running-requests 16 \
         --moe-a2a-backend deepep \
-    --deepep-mode low_latency \
+        --deepep-mode low_latency \
         --mem-fraction-static 0.855555 \
         --port 8001 \
         --cuda-graph-bs 8 \
         --quantization modelslim \
         --enable-multimodal  \
         --mm-attention-backend ascend_attn --max-total-tokens 300000 \
-        --dtype bfloat16 --mamba-ssm-dtype bfloat16 --disaggregation-mode decode --disaggregation-transfer-backend ascend --base-gpu-id 8 --skip-server-warmup --speculative-algorithm NEXTN --speculative-num-steps 3 --speculative-eagle-topk 1 --speculative-num-draft-tokens 4 --speculative-draft-model-quantization unquant
+        --dtype bfloat16 --mamba-ssm-dtype bfloat16 --disaggregation-mode decode --disaggregation-transfer-backend ascend --skip-server-warmup --speculative-algorithm NEXTN --speculative-num-steps 3 --speculative-eagle-topk 1 --speculative-num-draft-tokens 4 --speculative-draft-model-quantization unquant
