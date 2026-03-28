@@ -6,6 +6,6 @@ python3 -m sglang.bench_serving \
     --random-input-len 128000 \
     --random-output-len 1000 \
     --random-range-ratio 1 \
-    --max-concurrency 4 \
-    --num-prompt 16 \
+    --max-concurrency 2 \
+    --num-prompt 8 \
     --dataset-path /data/c30044170/dataset/random/ShareGPT_V3_unfiltered_cleaned_split.json
