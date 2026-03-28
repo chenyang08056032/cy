@@ -46,7 +46,7 @@ python3 -m sglang.launch_server \
   --max-running-requests 16 \
   --moe-a2a-backend deepep \
   --deepep-mode low_latency \
-  --mem-fraction-static 0.855555 \
+  --mem-fraction-static 0.5 \
   --port 8001 \
   --cuda-graph-bs 16 \
   --quantization modelslim \
