@@ -42,7 +42,7 @@ python3 -m sglang.launch_server \
   --max-prefill-tokens 131072 \
   --disable-radix-cache \
   --trust-remote-code \
-  --host 172.22.3.166 \
+  --host 172.22.3.209 \
   --max-running-requests 16 \
   --moe-a2a-backend deepep \
   --deepep-mode low_latency \
