@@ -44,7 +44,7 @@ python3 -m sglang.launch_server \
   --trust-remote-code \
   --host 172.22.3.181 \
   --max-running-requests 1 \
-  --mem-fraction-static 0.85 \
+  --mem-fraction-static 0.6 \
   --port 8999 \
   --cuda-graph-bs 2 4 6 8 10 16 20 24 28 32 48 64 128 \
   --quantization modelslim \
