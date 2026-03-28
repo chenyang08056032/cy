@@ -39,7 +39,7 @@ python3 -m sglang.launch_server \
   --nnodes 1 \
   --node-rank 0 \
   --chunked-prefill-size -1 \
-  --max-prefill-tokens 28672 \
+  --max-prefill-tokens 131072 \
   --disable-radix-cache \
   --trust-remote-code \
   --host 172.22.3.181 \
