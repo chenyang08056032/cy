@@ -7,9 +7,9 @@ port=6689
 args = SimpleNamespace(
     num_shots=5,
     data_path=None,
-    num_questions=200,
+    num_questions=10,
     max_new_tokens=512,
-    parallel=16,
+    parallel=1,
     host=f"http://{host}",
     port=int(port),
 )
