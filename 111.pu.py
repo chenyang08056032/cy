@@ -5,10 +5,17 @@ import unittest
 import requests
 
 from sglang.srt.utils import kill_process_tree
-# from sglang.test.ascend.test_ascend_utils import DOTS_OCR_WEIGHTS_PATH
+# from sglang.test.ascend.test_ascend_utils import (
+#     DOTS_OCR_WEIGHTS_PATH,
+#     INVOICE_WITH_BARCODE_LOGO_IMAGES_PATH,
+# )
 from sglang.test.ci.ci_register import register_npu_ci
-from sglang.test.test_utils import CustomTestCase, popen_launch_server, DEFAULT_URL_FOR_TEST, \
-    DEFAULT_TIMEOUT_FOR_SERVER_LAUNCH
+from sglang.test.test_utils import (
+    DEFAULT_TIMEOUT_FOR_SERVER_LAUNCH,
+    DEFAULT_URL_FOR_TEST,
+    CustomTestCase,
+    popen_launch_server,
+)
 
 register_npu_ci(
     est_time=400,
@@ -43,19 +50,14 @@ PAYLOAD = {
             "content": [
                 {
                     "type": "image_url",
-                    "image_url": {
-                        "url": "/data/c30044170/dataset/images/invoice_with_barcode_logo.jpeg"
-                    }
+                    "image_url": {"url": "/root/.cache/modelscope/hub/datasets/images/invoice_with_barcode_logo.jpeg"},
                 },
-                {
-                    "type": "text",
-                    "text": PROMPT_TEXT
-                }
-            ]
+                {"type": "text", "text": PROMPT_TEXT},
+            ],
         }
     ],
     "max_tokens": 2000,
-    "temperature": 0
+    "temperature": 0,
 }
 
 
@@ -123,8 +125,11 @@ class TestDotsOcr(CustomTestCase):
 
         ocr_result = json.loads(response.json()["choices"][0]["message"]["content"])
 
-        detected_texts_set = {item["text"] for item in ocr_result
-                              if item.get("category") in ["Text", "Section-header"] and "text" in item}
+        detected_texts_set = {
+            item["text"]
+            for item in ocr_result
+            if item.get("category") in ["Text", "Section-header"] and "text" in item
+        }
         logging.warning(detected_texts_set)
 
         expected_texts_set = {
@@ -152,11 +157,14 @@ class TestDotsOcr(CustomTestCase):
             "0",
             "More Options",
             "Direct flights only.",
-            "SEARCH FLIGHTS"
+            "SEARCH FLIGHTS",
         }
 
-        self.assertEqual(detected_texts_set, expected_texts_set,
-                         f"Missing texts: {expected_texts_set - detected_texts_set}")
+        self.assertEqual(
+            detected_texts_set,
+            expected_texts_set,
+            f"Missing texts: {expected_texts_set - detected_texts_set}",
+        )
 
 
 if __name__ == "__main__":
