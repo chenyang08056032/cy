@@ -118,14 +118,14 @@ class TestDotsOcr(CustomTestCase):
         headers = {"Content-Type": "application/json"}
 
         response = requests.post(url, headers=headers, json=PAYLOAD)
-        logging.info(response.json())
+        logging.warning(response.json())
         self.assertEqual(response.status_code, 200)
 
         ocr_result = json.loads(response.json()["choices"][0]["message"]["content"])
 
         detected_texts_set = {item["text"] for item in ocr_result
                               if item.get("category") in ["Text", "Section-header"] and "text" in item}
-        logging.info(detected_texts_set)
+        logging.warning(detected_texts_set)
 
         expected_texts_set = {
             "8:36",
