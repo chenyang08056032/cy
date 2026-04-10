@@ -1,3 +1,4 @@
+import json
 import unittest
 
 import requests
@@ -115,8 +116,18 @@ class TestDeepseekVl2(CustomTestCase):
         }
 
         response = requests.post(url, headers=headers, json=payload)
-        print(response.status_code)
         print(response.json())
+        self.assertEqual(response.status_code, 200)
+        ocr_result = json.loads(response.json()["choices"][0]["message"]["content"])
+        detected_texts = [item["text"] for item in ocr_result
+                          if item.get("category") in ["Text", "Section-header"] and "text" in item]
+
+
+        must_have = ["Flight", "DEL", "BLR", "6 FEB", "SEARCH FLIGHTS"]
+
+        for text in must_have:
+            found = any(text in detected for detected in detected_texts)
+            self.assertTrue(found, f"Must contain '{text}'")
 
 
 if __name__ == "__main__":
