@@ -150,8 +150,8 @@ class TestDeepseekVl2(CustomTestCase):
             "Direct flights only.",
             "SEARCH FLIGHTS"
         }
-
-        # 只检查所有文本都存在
+        print("")
+        print(detected_texts_set)
         self.assertEqual(detected_texts_set, expected_texts_set,
                          f"Missing texts: {expected_texts_set - detected_texts_set}")
 
