@@ -1,0 +1,1 @@
+wget "https://dataset-hub.oss-cn-hangzhou.aliyuncs.com/universal_dataset/evalscope/OCRBench_v2/master/data/68ce9154-6238-48c6-b2a9-e4e0ed2ec4a3251013_125646.jpeg?Expires=1776421022&OSSAccessKeyId=LTAI5tAoCEDFQFyV5h8unjt8&Signature=f7OD5ZFu5j0hEIsjKoulW0aUdEc%3D"
