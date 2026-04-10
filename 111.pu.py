@@ -68,7 +68,8 @@ class TestDotsOcr(CustomTestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.model = DOTS_OCR_WEIGHTS_PATH
+        #cls.model = DOTS_OCR_WEIGHTS_PATH
+        cls.model = "/root/.cache/modelscope/hub/models/rednote-hilab/dots.ocr"
         cls.base_url = DEFAULT_URL_FOR_TEST
         other_args = [
             "--max-prefill-tokens",
