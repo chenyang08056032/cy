@@ -4,7 +4,7 @@ import unittest
 import requests
 
 from sglang.srt.utils import kill_process_tree
-#from sglang.test.ascend.test_ascend_utils import DOTS_OCR_WEIGHTS_PATH
+# from sglang.test.ascend.test_ascend_utils import DOTS_OCR_WEIGHTS_PATH
 from sglang.test.ci.ci_register import register_npu_ci
 from sglang.test.test_utils import CustomTestCase, popen_launch_server, DEFAULT_URL_FOR_TEST, \
     DEFAULT_TIMEOUT_FOR_SERVER_LAUNCH
@@ -25,7 +25,7 @@ class TestDeepseekVl2(CustomTestCase):
 
     @classmethod
     def setUpClass(cls):
-        #cls.model = DOTS_OCR_WEIGHTS_PATH
+        # cls.model = DOTS_OCR_WEIGHTS_PATH
         cls.model = "/root/.cache/modelscope/hub/models/rednote-hilab/dots.ocr"
         cls.base_url = DEFAULT_URL_FOR_TEST
         other_args = [
@@ -101,7 +101,7 @@ class TestDeepseekVl2(CustomTestCase):
                         {
                             "type": "image_url",
                             "image_url": {
-                                 "url": "/data/c30044170/dataset/images/invoice_with_barcode_logo.jpeg"
+                                "url": "/data/c30044170/dataset/images/invoice_with_barcode_logo.jpeg"
                             }
                         },
                         {
@@ -119,15 +119,41 @@ class TestDeepseekVl2(CustomTestCase):
         print(response.json())
         self.assertEqual(response.status_code, 200)
         ocr_result = json.loads(response.json()["choices"][0]["message"]["content"])
-        detected_texts = [item["text"] for item in ocr_result
-                          if item.get("category") in ["Text", "Section-header"] and "text" in item]
 
+        detected_texts_set = {item["text"] for item in ocr_result
+                              if item.get("category") in ["Text", "Section-header"] and "text" in item}
 
-        must_have = ["Flight", "DEL", "BLR", "6 FEB", "SEARCH FLIGHTS"]
+        expected_texts_set = {
+            "8:36",
+            "Flight",
+            "Upto Rs/- 300 discount per pax on round trips, use APPVIA coupon code and Pay through Mobikwik, Get Up to 100% cashback (Maximum Rs. 500) on your booking.",
+            "From",
+            "DEL",
+            "Delhi",
+            "To",
+            "BLR",
+            "Bangalore",
+            "Depart",
+            "6 FEB",
+            "Mon, 2017",
+            "Add Return",
+            "Adults",
+            "12+ Years",
+            "1",
+            "Children",
+            "2 - 11 Years",
+            "0",
+            "Infants",
+            "Below 2 Years",
+            "0",
+            "More Options",
+            "Direct flights only.",
+            "SEARCH FLIGHTS"
+        }
 
-        for text in must_have:
-            found = any(text in detected for detected in detected_texts)
-            self.assertTrue(found, f"Must contain '{text}'")
+        # 只检查所有文本都存在
+        self.assertEqual(detected_texts_set, expected_texts_set,
+                         f"Missing texts: {expected_texts_set - detected_texts_set}")
 
 
 if __name__ == "__main__":
