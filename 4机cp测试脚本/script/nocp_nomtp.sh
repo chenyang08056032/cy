@@ -19,7 +19,7 @@ export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
 export STREAMS_PER_DEVICE=32
 export ASCEND_MF_STORE_URL="tcp://172.22.3.71:24670"
 
-P_IP=('172.22.3.71' '172.22.3.154')
+P_IP=('172.22.3.71' '172.22.3.160')
 D_IP=('172.22.3.166' '172.22.3.181')
 MODEL_PATH=/root/.cache/modelscope/hub/models/vllm-ascend/DeepSeek-V3.2-W8A8
 
