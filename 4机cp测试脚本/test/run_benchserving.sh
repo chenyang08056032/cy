@@ -1,0 +1,11 @@
+python3 -m sglang.bench_serving \
+	--backend sglang \
+	--dataset-name random \
+	--num-prompts 1 \
+	--random-input 64000 \
+	--random-output 1 \
+	--host 127.0.0.1 \
+	--port 6688 \
+	--random-range-ratio 1 \
+	--model /root/.cache/modelscope/hub/models/vllm-ascend/DeepSeek-V3.2-W8A8 \
+  --dataset-path /tmp/ShareGPT_V3_unfiltered_cleaned_split.json
