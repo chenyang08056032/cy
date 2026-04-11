@@ -1,4 +1,4 @@
-curl --location 'http://172.22.3.245:6699/generate' \
+curl --location 'http://127.0.0.1:6688/generate' \
 	--header 'Content-Type: application/json' \
 	--data @- <<'EOF'
 {
