@@ -37,8 +37,8 @@ do
         export HCCL_BUFFSIZE=1200
         export DEEP_NORMAL_MODE_USE_INT8_QUANT=1
         export TASK_QUEUE_ENABLE=2
-        export HCCL_SOCKET_IFNAME=enp196s0f0
-        export GLOO_SOCKET_IFNAME=enp196s0f0
+        export HCCL_SOCKET_IFNAME=enp23s0f3
+        export GLOO_SOCKET_IFNAME=enp23s0f3
 
         python3 -m sglang.launch_server --model-path ${MODEL_PATH} \
         --tp 32 \
@@ -80,8 +80,8 @@ do
         export TASK_QUEUE_ENABLE=0
         export SGLANG_SCHEDULER_SKIP_ALL_GATHER=1
 
-        export HCCL_SOCKET_IFNAME=enp196s0f0
-        export GLOO_SOCKET_IFNAME=enp196s0f0
+        export HCCL_SOCKET_IFNAME=enp23s0f3
+        export GLOO_SOCKET_IFNAME=enp23s0f3
 
         DP=8
         export HCCL_BUFFSIZE=400
