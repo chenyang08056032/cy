@@ -1,6 +1,6 @@
 python3 -m sglang.bench_serving \
     --backend sglang \
-    --host 172.22.3.181 \
+    --host 172.22.3.71 \
     --port 6689 \
     --dataset-name random \
     --random-input-len 256000 \

@@ -1,6 +1,6 @@
 export ASCEND_USE_FIA=1
 export SGLANG_SET_CPU_AFFINITY=1
-export ASCEND_MF_STORE_URL="tcp://172.22.3.181:12345"
+export ASCEND_MF_STORE_URL="tcp://172.22.3.71:12345"
 export HCCL_SOCKET_IFNAME=enp23s0f3
 export GLOO_SOCKET_IFNAME=enp23s0f3
 
@@ -27,9 +27,9 @@ python3 -m sglang.launch_server \
    --tp-size 16 \
    --mem-fraction-static 0.45 \
    --max-running-requests 1 \
-   --host 172.22.3.181 \
+   --host 172.22.3.71 \
    --port 8000 \
-   --dist-init-addr 172.22.3.181:5000 \
+   --dist-init-addr 172.22.3.71:5000 \
    --nnodes 1 \
    --node-rank 0 \
    --moe-a2a-backend deepep \
