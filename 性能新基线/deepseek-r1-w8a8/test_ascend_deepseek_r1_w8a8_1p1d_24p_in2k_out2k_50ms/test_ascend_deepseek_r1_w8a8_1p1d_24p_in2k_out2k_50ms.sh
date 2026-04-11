@@ -78,6 +78,7 @@ do
     export SGLANG_SCHEDULER_SKIP_ALL_GATHER=1
     export HCCL_SOCKET_IFNAME=enp23s0f3
     export GLOO_SOCKET_IFNAME=enp23s0f3
+    export SGLANG_NPU_FUSED_MOE_MODE=2
 
 	python -m sglang.launch_server --model-path ${MODEL_PATH} --disaggregation-mode decode --host ${D_IP[$i]} \
         --port 8001 --trust-remote-code --dist-init-addr ${D_IP[0]}:5000 --nnodes 2 --node-rank $i --tp-size 32 --dp-size 32 \
