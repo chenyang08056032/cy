@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 from sglang.test.few_shot_gsm8k import run_eval as run_gsm8k
 
-host="172.22.3.181"
+host="172.22.3.71"
 port=6689
 
 args = SimpleNamespace(
