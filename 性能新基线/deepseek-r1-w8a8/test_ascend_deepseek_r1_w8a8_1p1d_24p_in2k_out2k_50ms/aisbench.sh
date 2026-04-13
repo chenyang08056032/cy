@@ -1,0 +1,1 @@
+ais_bench --models vllm_api_stream_chat --datasets gsm8k_gen_0_shot_cot_str_perf  --debug --summarizer default_perf --mode perf
