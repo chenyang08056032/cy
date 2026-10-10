@@ -1,0 +1,2 @@
+
+<table><tr><td>HEX</td><td>WINTER</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL TILT</td><td>AXIAL</td></tr></table>

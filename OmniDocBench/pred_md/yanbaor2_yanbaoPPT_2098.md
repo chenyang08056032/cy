@@ -1,0 +1,2 @@
+
+<table><tr><td>一级主题词</td><td>二级主题词</td><td>三级主题词</td><td>四级主题词</td><td>五级主题词</td><td>六级主题词</td><td>七级主题词</td></tr><tr><td></td><td></td><td></td><td>机器翻译</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>

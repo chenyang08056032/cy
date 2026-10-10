@@ -1,0 +1,10 @@
+
+## Result Parameter Details
+
+## Peripheral Control Status
+
+The SMPC outputs the peripheral control status to the status register (SR) when the SMPC control mode is used. The status register (SR) is a register that can be read without regard for the INTBACK command. However, when the register is read when the INTBACK command is not in use, all bits except the RESB bit will be undefined.
+
+<table><tr><td colspan="6">bit7</td><td colspan="4">bit0</td></tr><tr><td>SR</td><td>1</td><td>PDL</td><td>NPE</td><td>RESB</td><td>P2MD1</td><td>P2MD0</td><td>P1MD1</td><td>P1MD0</td><td></td></tr><tr><td colspan="10">P1MD: Port 1 Mode</td></tr><tr><td colspan="10">00: 15-byte mode (Returns peripheral data up to a maximum of 15 bytes.)</td></tr><tr><td colspan="10">01: 255-byte mode (Returns peripheral data up to a maximum of 255 bytes.)</td></tr><tr><td colspan="10">10: Unused</td></tr><tr><td colspan="10">11: 0-byte mode (Port is not accessed.)</td></tr><tr><td colspan="10">P2MD: Port 2 Mode</td></tr><tr><td colspan="10">00: 15-byte mode (Returns peripheral data up to a maximum of 15 bytes.)</td></tr><tr><td colspan="10">01: 255-byte mode (Returns peripheral data up to a maximum of 255 bytes.)</td></tr><tr><td colspan="10">10: Unused</td></tr><tr><td colspan="10">11: 0-byte mode (Port is not accessed.)</td></tr><tr><td colspan="10">RESB: Reset Button Status Bit</td></tr><tr><td colspan="10">0: Reset Button OFF</td></tr><tr><td colspan="10">1: Reset Button ON</td></tr><tr><td colspan="10">Reading without regard for INTBACK command is possible. (Shows status for each V-BLANK-IN.)</td></tr><tr><td colspan="10">NPE: Remaining Peripheral Existence Bit</td></tr><tr><td colspan="10">0: No remaining data</td></tr><tr><td colspan="10">1: Remaining data</td></tr><tr><td colspan="10">PDL: Peripheral Data Location Bit</td></tr><tr><td colspan="10">0: 2nd or above peripheral data</td></tr><tr><td colspan="10">1: 1st peripheral data</td></tr><tr><td colspan="10">bit7: Always 1</td></tr></table>
+
+Figure 3.13 Peripheral Control Status
